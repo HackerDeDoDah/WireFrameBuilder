@@ -1,0 +1,35 @@
+span {
+    color: skyblue;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    float: left;
+    &:hover {
+        color: red;
+        cursor: pointer;
+    }
+    a {
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+            color: red;
+            cursor: pointer;
+        }
+    }
+}
+
+
+

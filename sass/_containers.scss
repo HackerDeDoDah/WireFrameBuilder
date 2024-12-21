@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-sizing: border-box;
+}
+/* header */
+.wrapper {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #0b0423;
+    border-bottom: 2px solid #fff;
+    position: fixed;
+    z-index: 99;
+    p {
+        color: #fff;
+        padding: 16px;
+    }
+}
+
+/* project */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: #0b0423;
+    display: flex;
+    z-index: 1;
+    position: relative;
+}
