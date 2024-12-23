@@ -96,7 +96,7 @@ li a:hover {
 }
 
 #left {
-  width: 300px;
+  width: 325px;
   min-height: 400px;
   height: 620px;
   overflow-y: scroll;
@@ -119,7 +119,7 @@ li a:hover {
   display: flex;
   width: 100%;
   min-height: 620px;
-  margin-left: 310px;
+  margin-left: 335px;
   margin-top: 70px;
   border: 4px solid grey;
   background-color: lightgrey;
