@@ -13,6 +13,11 @@
         color: #fff;
         padding: 5px;
     }
+    img {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
 }
 
 .workspace {
@@ -39,13 +44,14 @@
 
 #right {
     background-color: lightslategray;
-    width: 280px;
+    width: 560px;
     min-height: 500px;
     height: fit-content;
 
     img {
         display: block;
         margin: 0;
+        width: 560px;
     }
     
     p {
@@ -59,7 +65,8 @@
 
 .list {
     background: red;
-    height: 80px;
+    width: 280px;
+    height: auto;
     margin: 10px;
     color: #fff;
     display: flex;
