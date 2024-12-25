@@ -138,3 +138,11 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
             console.error("Error capturing workspace:", error);
         });
 });
+
+
+// Clear all items in the rightBox (workspace)
+document.getElementById("clearAllBtn").addEventListener("click", function () {
+    const workspace = document.getElementById("right");
+    workspace.innerHTML = ""; // Clear all children from the workspace
+    alert("Confirm to clear Workspace!");
+});
