@@ -95,6 +95,12 @@ function getDragAfterElement(container, y) {
 document.getElementById("saveAsBtn").addEventListener("click", function () {
     const workspace = document.getElementById("right");
 
+    // Check if the workspace is empty
+    if (workspace.children.length === 0) {
+        alert("You haven't made anything yet. Start creating now!");
+        return;
+    }
+
     // Add height labels to images in the workspace
     const images = workspace.getElementsByTagName("img");
     for (let img of images) {
