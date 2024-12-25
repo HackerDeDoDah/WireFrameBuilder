@@ -140,9 +140,9 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
 });
 
 
-// Clear all items in the rightBox (workspace)
+// Clear all items in the workspace
 document.getElementById("clearAllBtn").addEventListener("click", function () {
     const workspace = document.getElementById("right");
-    workspace.innerHTML = ""; // Clear all children from the workspace
+    workspace.innerHTML = "";
     alert("Confirm to clear Workspace!");
 });
