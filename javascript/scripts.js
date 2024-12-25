@@ -140,9 +140,7 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
 });
 
 
-// Clear all items in the workspace
+// Refresh the page on "Clear All" button click
 document.getElementById("clearAllBtn").addEventListener("click", function () {
-    const workspace = document.getElementById("right");
-    workspace.innerHTML = "";
-    alert("Confirm to clear Workspace!");
+    location.reload(); // Reloads the current page
 });
