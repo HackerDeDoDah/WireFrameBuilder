@@ -3,44 +3,42 @@ let lists = document.getElementsByClassName("list");
 let rightBox = document.getElementById("right");
 let leftBox = document.getElementById("left");
 
+// Add event listeners to rightBox and leftBox once
+rightBox.addEventListener("dragover", function (e) {
+    e.preventDefault();
+});
+
+rightBox.addEventListener("drop", function (e) {
+    e.preventDefault();
+    const selected = document.querySelector(".dragging");
+    if (selected) {
+        rightBox.appendChild(selected);
+        selected.classList.remove("dragging");
+    }
+});
+
+leftBox.addEventListener("dragover", function (e) {
+    e.preventDefault();
+});
+
+leftBox.addEventListener("drop", function (e) {
+    e.preventDefault();
+    const selected = document.querySelector(".dragging");
+    if (selected) {
+        leftBox.appendChild(selected);
+        selected.classList.remove("dragging");
+    }
+});
+
 // for loop
 for (let list of lists) {
     list.addEventListener("dragstart", function (e) {
-        // Clone the element being dragged
-        let selected = e.target.cloneNode(true);
-        selected.style.cursor = "grab"; // Ensure cursor style matches drag-and-drop
-        selected.setAttribute("draggable", true);
-
-        // Temporary transfer data to handle the drop event
+        e.target.classList.add("dragging");
         e.dataTransfer.setData("text/plain", "");
+    });
 
-        // right box
-        rightBox.addEventListener("dragover", function (e) {
-            e.preventDefault();
-        });
-
-        rightBox.addEventListener("drop", function (e) {
-            e.preventDefault();
-            // Add the cloned item to the right box
-            rightBox.appendChild(selected);
-
-            // Ensure the cloned item remains draggable
-            addDragHandlers(selected);
-        });
-
-        // left box
-        leftBox.addEventListener("dragover", function (e) {
-            e.preventDefault();
-        });
-
-        leftBox.addEventListener("drop", function (e) {
-            e.preventDefault();
-            // Add the cloned item to the left box
-            leftBox.appendChild(selected);
-
-            // Ensure the cloned item remains draggable
-            addDragHandlers(selected);
-        });
+    list.addEventListener("dragend", function (e) {
+        e.target.classList.remove("dragging");
     });
 }
 
@@ -48,7 +46,6 @@ for (let list of lists) {
 function addDragHandlers(element) {
     element.setAttribute("draggable", true);
 
-    // Add event listeners for reordering within rightBox
     element.addEventListener("dragstart", function (e) {
         e.dataTransfer.setData("text/plain", ""); // Required for drag events
         element.classList.add("dragging");
@@ -144,7 +141,6 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
             console.error("Error capturing workspace:", error);
         });
 });
-
 
 // Refresh the page on "Clear All" button click
 document.getElementById("clearAllBtn").addEventListener("click", function () {

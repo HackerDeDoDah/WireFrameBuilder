@@ -1,6 +1,6 @@
 .leBeat {
     color: skyblue;
-    padding:16px;
+    padding: 16px;
     letter-spacing: 3px;
     font-size: 20px;
 }
@@ -23,16 +23,14 @@ li {
         color: red;
         cursor: pointer;
     }
-    a {
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        &:hover {
-            color: red;
-            cursor: pointer;
-        }
-    }
 }
 
-
-
+li a {
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+        color: red;
+        cursor: pointer;
+    }
+}
