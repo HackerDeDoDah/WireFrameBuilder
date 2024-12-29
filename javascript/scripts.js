@@ -33,12 +33,41 @@ leftBox.addEventListener("drop", function (e) {
 // for loop
 for (let list of lists) {
     list.addEventListener("dragstart", function (e) {
-        e.target.classList.add("dragging");
-        e.dataTransfer.setData("text/plain", "");
-    });
+        // Clone the element being dragged
+        let selected = e.target.cloneNode(true);
+        selected.style.cursor = "grab"; // Ensure cursor style matches drag-and-drop
+        selected.setAttribute("draggable", true);
 
-    list.addEventListener("dragend", function (e) {
-        e.target.classList.remove("dragging");
+        // Temporary transfer data to handle the drop event
+        e.dataTransfer.setData("text/plain", "");
+
+        // right box
+        rightBox.addEventListener("dragover", function (e) {
+            e.preventDefault();
+        });
+
+        rightBox.addEventListener("drop", function (e) {
+            e.preventDefault();
+            // Add the cloned item to the right box
+            rightBox.appendChild(selected);
+
+            // Ensure the cloned item remains draggable
+            addDragHandlers(selected);
+        });
+
+        // left box
+        leftBox.addEventListener("dragover", function (e) {
+            e.preventDefault();
+        });
+
+        leftBox.addEventListener("drop", function (e) {
+            e.preventDefault();
+            // Add the cloned item to the left box
+            leftBox.appendChild(selected);
+
+            // Ensure the cloned item remains draggable
+            addDragHandlers(selected);
+        });
     });
 }
 
