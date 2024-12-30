@@ -7,7 +7,7 @@ let leftBox = document.getElementById("left");
 rightBox.addEventListener("dragover", function (e) {
     e.preventDefault();
 });
-
+// right box
 rightBox.addEventListener("drop", function (e) {
     e.preventDefault();
     const selected = document.querySelector(".dragging");
@@ -16,7 +16,7 @@ rightBox.addEventListener("drop", function (e) {
         selected.classList.remove("dragging");
     }
 });
-
+// left box
 leftBox.addEventListener("dragover", function (e) {
     e.preventDefault();
 });
@@ -35,7 +35,7 @@ for (let list of lists) {
     list.addEventListener("dragstart", function (e) {
         // Clone the element being dragged
         let selected = e.target.cloneNode(true);
-        selected.style.cursor = "grab"; // Ensure cursor style matches drag-and-drop
+        selected.style.cursor = "grab"; // drag-and-drop cursor
         selected.setAttribute("draggable", true);
 
         // Temporary transfer data to handle the drop event
@@ -76,7 +76,7 @@ function addDragHandlers(element) {
     element.setAttribute("draggable", true);
 
     element.addEventListener("dragstart", function (e) {
-        e.dataTransfer.setData("text/plain", ""); // Required for drag events
+        e.dataTransfer.setData("text/plain", ""); // for drag events
         element.classList.add("dragging");
     });
 
@@ -99,7 +99,7 @@ rightBox.addEventListener("dragover", function (e) {
     }
 });
 
-// Helper function to determine the element to place the dragged item after
+// Helper function to determine the element to place the dragged item
 function getDragAfterElement(container, y) {
     const draggableElements = [...container.querySelectorAll(".list:not(.dragging)")];
 
@@ -127,13 +127,13 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
         return;
     }
 
-    // Add height labels to images in the workspace
+    // Add labels to images in workspace
     const images = workspace.getElementsByTagName("img");
     for (let img of images) {
         const height = img.clientHeight;
         const parent = img.parentElement;
 
-        // Create a height label
+        // Make label
         const heightLabel = document.createElement("div");
         heightLabel.textContent = `Height: ${height}px`;
         heightLabel.style.position = "absolute";
@@ -144,7 +144,7 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
         heightLabel.style.marginTop = "-20px";
         heightLabel.style.zIndex = "10";
 
-        // Append the label to the image's container
+        // Fix the label to the image's container
         parent.style.position = "relative";
         parent.appendChild(heightLabel);
     }
@@ -157,7 +157,7 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
             link.href = canvas.toDataURL("image/jpeg");
             link.click();
 
-            // Clean up the height labels after saving
+            // Clean up labels after saving
             for (let img of images) {
                 const parent = img.parentElement;
                 const heightLabel = parent.querySelector("div");
