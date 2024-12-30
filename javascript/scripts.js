@@ -171,7 +171,7 @@ document.getElementById("saveAsBtn").addEventListener("click", function () {
         });
 });
 
-// Refresh the page on "Clear All" button click
+// Refresh Clear All button
 document.getElementById("clearAllBtn").addEventListener("click", function () {
-    location.reload(); // Reloads the current page
+    location.reload();
 });
